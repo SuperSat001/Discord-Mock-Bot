@@ -9,22 +9,31 @@ import random
 from discord.ext import commands
 from dotenv import load_dotenv
 from math import ceil
+from copy import deepcopy
+from itertools import groupby
 
-major_ans = [0.17,36,0.99,836,3010000,65,777,66.7,52.9,
-            7.8,0.0344,31.3,0.00005,8.17173,5.54,0.14,3600,18800,1.7,
-            22600,22.63,0.025,0.19,0.976,0.768,1.88,143,1.96,0.09375,
-            1300000,0.0000629,6.41874,24.4,0.303,3.6,0.16506,0.3292,2,0.009,7.81,
-            3141.59,1.26,200,512,0.333,31.3,0.000001,3.3,0.1115,28700]
-major_points = [3,3,3,3,3,4,4,4,4,4,3,4,4,4,5,4,4,4,4,6,4,4,5,6,3,4,5,5,5,5,5,5,6,5,4,6,6,4,6,6,7,6,6,5,6,5,7,6,8,9]
+pres_range = 0.05 # range of acceptable answers
 
-hm_ans = [40, 7040000, 150.6, 28000]
-hm_points = [3, 3, 4, 4]
+with open("pb2019/ans.txt") as f:
+    r = []
+    for k in f.readlines():
+        r.append(k.strip())
+    c = [list(group) for k, group in groupby(r, lambda x: x == "x") if not k]
+    major_ans = [float(x) for x in c[0]]
+    hm_ans = [float(x) for x in c[1]]
+    he_ans = [float(x) for x in c[2]]
+    hx_ans = [float(x) for x in c[3]]
 
-he_ans = [2670, 0.4762, 1.62, 0.11]
-he_points = [3, 3, 4, 4]
+with open("pb2019/pts.txt") as f:
+    r = []
+    for k in f.readlines():
+        r.append(k.strip())
+    c = [list(group) for k, group in groupby(r, lambda x: x == "x") if not k]
+    major_points = [int(x) for x in c[0]]
+    hm_points = [int(x) for x in c[1]]
+    he_points = [int(x) for x in c[2]]
+    hx_points = [int(x) for x in c[3]]
 
-hx_ans = [80, 20000000000, 5240000000000, 99]
-hx_points = [3]*4
 
 points_scored = {}
 out_channel = {}
@@ -82,7 +91,7 @@ async def add(ctx, num:int):
 async def major(ctx):
 
     global points_scored
-    major_value = [3,3,3,3,3,4,4,4,4,4,3,4,4,4,5,4,4,4,4,6,4,4,5,6,3,4,5,5,5,5,5,5,6,5,4,6,6,4,6,6,7,6,6,5,6,5,7,6,8,9]
+    major_value = deepcopy(major_points)
 
     channel = ctx.message.channel
 
@@ -97,7 +106,7 @@ async def major(ctx):
 
     def validate(ans, i):
         cor = major_ans[i-1]
-        return ((abs(ans-cor)/cor)<0.05)
+        return ((abs(ans-cor)/cor)<(pres_range/2))
 
     def reduce(cur, orignal):
         cur -= 0.2*orignal
@@ -109,9 +118,9 @@ async def major(ctx):
     await ctx.send("Asking Questions.....\nMajor")
 
     i = 1
-    while i<=50:
+    while i<=len(major_ans):
 
-        qn = "pb2019/" + str(i) + ".PNG"
+        qn = "pb2019/images/" + str(i) + ".PNG"
         await ctx.send(file=discord.File(qn))
         await ctx.send(f"{ceil(major_value[i-1])} points")        
 	   
@@ -149,7 +158,7 @@ async def major(ctx):
 async def hm(ctx):
 
     global points_scored
-    hm_value = [3, 3, 4, 4]
+    hm_value = deepcopy(hm_points)
 
     channel = ctx.message.channel
 
@@ -164,7 +173,7 @@ async def hm(ctx):
 
     def validate(ans, i):
         cor = hm_ans[i-1]
-        return ((abs(ans-cor)/cor)<0.025)
+        return ((abs(ans-cor)/cor)<(pres_range/2))
 
     def reduce(cur, orignal):
         cur -= 0.2*orignal
@@ -176,8 +185,8 @@ async def hm(ctx):
     await ctx.send("Asking Questions..... \nHurry-Up Mechanics")
 
     i = 1
-    while i<=4:
-        qn = "pb2019/m" + str(i) + ".PNG"
+    while i<=len(hm_ans):
+        qn = "pb2019/images/m" + str(i) + ".PNG"
         await ctx.send(file=discord.File(qn))
         await ctx.send(f"{ceil(hm_value[i-1])} points")        
        
@@ -215,8 +224,7 @@ async def hm(ctx):
 async def he(ctx):
 
     global points_scored
-    he_value = [3, 3, 4, 4]
-
+    he_value = deepcopy(he_points)
     channel = ctx.message.channel
 
     if out_channel[ctx.message.guild.id] == -1:
@@ -230,7 +238,7 @@ async def he(ctx):
 
     def validate(ans, i):
         cor = he_ans[i-1]
-        return ((abs(ans-cor)/cor)<0.025)
+        return ((abs(ans-cor)/cor)<(pres_range/2))
 
     def reduce(cur, orignal):
         cur -= 0.2*orignal
@@ -242,8 +250,8 @@ async def he(ctx):
     await ctx.send("Asking Questions..... \nHurry-Up EM")
 
     i = 1
-    while i<=4:
-        qn = "pb2019/e" + str(i) + ".PNG"
+    while i<=len(he_ans):
+        qn = "pb2019/images/e" + str(i) + ".PNG"
         await ctx.send(file=discord.File(qn))
         await ctx.send(f"{ceil(he_value[i-1])} points")        
        
@@ -281,7 +289,7 @@ async def he(ctx):
 async def hx(ctx):
 
     global points_scored
-    hx_value = [3, 3, 4, 4]
+    hx_value = deepcopy(hx_points)
 
     channel = ctx.message.channel
 
@@ -296,7 +304,7 @@ async def hx(ctx):
 
     def validate(ans, i):
         cor = hx_ans[i-1]
-        return ((abs(ans-cor)/cor)<0.025)
+        return ((abs(ans-cor)/cor)<(pres_range/2))
 
     def reduce(cur, orignal):
         cur -= 0.2*orignal
@@ -308,8 +316,8 @@ async def hx(ctx):
     await ctx.send("Asking Questions..... \nHurry-Up Other")
 
     i = 1
-    while i<=4:
-        qn = "pb2019/x" + str(i) + ".PNG"
+    while i<=len(hx_ans):
+        qn = "pb2019/images/x" + str(i) + ".PNG"
         await ctx.send(file=discord.File(qn))
         await ctx.send(f"{ceil(hx_value[i-1])} points")        
        

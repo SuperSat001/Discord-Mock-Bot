@@ -43,7 +43,7 @@ Time limits for the rounds are:
 8. **Skip a question**. You can skip a question by writing `skip` in the relevant channel.
 
 ## Help me with the development
-Please help me by creating image folder for other years Physics Brawls like `pb 2019`, their solutions file like `pb2019ans.txt` and points file like `pb2019pts.txt`. By doing this, not only can you mock other Physics Brawls, but you also help other users do the same.
+Please help me by creating image folder for other years Physics Brawls like `images`, their solutions file like `ans.txt` and points file like `pts.txt` under `pb2019` folder. By doing this, not only can you mock other Physics Brawls, but you also help other users do the same.
 
 ## Bugs and Glitches
 Report any bug or glitch you encounter while using to me on discord, `Delta0001#8468`.
@@ -51,3 +51,8 @@ Report any bug or glitch you encounter while using to me on discord, `Delta0001#
 ## Credits
 The bot is developed solely by me, and fair use of the code is allowed. Enjoy.
 
+### Acknowledgements
+Thanks to my friends on the [Physics Olympiad Discord Server](https://discord.gg/wyGAa49) for using this bot and for this emoji.
+
+
+<center>![Yaw](https://i.imgur.com/ww1snsg.png)</center>
