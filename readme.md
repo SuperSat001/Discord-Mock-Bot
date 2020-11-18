@@ -4,9 +4,11 @@ Author - Delta0001#8468
 
 [Invite the Bot](https://discord.com/api/oauth2/authorize?client_id=753144721915772940&permissions=8&scope=bot)
 
+Code hosted on GitHub at [Discord Mock Bot](https://github.com/SuperSat001/Discord-Mock-Bot)
+
 ## Usage Instructions
 
-0. **Important note**. Do not type anything other than the answer in the round channels. Use a different channel for discussion. Don't write answers in scientific notation and use SI units wherever not mentioned.
+0. **Important note**. Do not type anything other than the answer in the round channels. Use a different channel for discussion. Don't write answers in scientific notation and use SI units **wherever not mentioned**.
 
 1. **Create channels**. The following channels need to be created:
 	- Points Tally
@@ -39,6 +41,9 @@ Time limits for the rounds are:
 	- Bonus Time for Hurry-Up : 30 mins
 
 8. **Skip a question**. You can skip a question by writing `skip` in the relevant channel.
+
+## Help me with the development
+Please help me by creating image folder for other years Physics Brawls like `pb 2019`, their solutions file like `pb2019ans.txt` and points file like `pb2019pts.txt`. By doing this, not only can you mock other Physics Brawls, but you also help other users do the same.
 
 ## Bugs and Glitches
 Report any bug or glitch you encounter while using to me on discord, `Delta0001#8468`.
