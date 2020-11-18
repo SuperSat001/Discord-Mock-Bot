@@ -45,7 +45,7 @@ Time limits for the rounds are:
 ## Help me with the development
 Please help me by creating image folder for other years Physics Brawls like `images`, their solutions file like `ans.txt` and points file like `pts.txt` under `pb2019` folder. By doing this, not only can you mock other Physics Brawls, but you also help other users do the same.
 
-Check `making mock.md` for further info.
+Check [making mock.md](https://github.com/SuperSat001/Discord-Mock-Bot/blob/master/making%20mock.md) for further info.
 
 ## Bugs and Glitches
 Report any bug or glitch you encounter while using to me on discord, `Delta0001#8468`.
