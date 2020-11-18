@@ -55,4 +55,4 @@ The bot is developed solely by me, and fair use of the code is allowed. Enjoy.
 Thanks to my friends on the [Physics Olympiad Discord Server](https://discord.gg/wyGAa49) for using this bot and for this emoji.
 
 
-<center>![Yaw](https://i.imgur.com/ww1snsg.png)</center>
+![Yaw](https://i.imgur.com/ww1snsg.png)
