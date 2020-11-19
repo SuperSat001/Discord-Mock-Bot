@@ -54,12 +54,13 @@ async def on_ready():
         points_scored[guild.id] = 0
         out_channel[guild.id] = -1
 
+
 @bot.event
-async def on_member_join(member):
-    await member.create_dm()
-    await member.dm_channel.send(
-        f'Hi {member.name}, welcome to my Discord server!'
-    )
+async def on_guild_join(guild):
+    global points_scored, out_channel
+    print(guild, guild.id)
+    points_scored[guild.id] = 0
+    out_channel[guild.id] = -1
 
 @bot.command(name="usage", help="Usage Instructions")
 async def test(ctx):
@@ -69,8 +70,9 @@ async def test(ctx):
 @bot.command(name="out", help="Set output channel")
 @commands.has_role('mock')
 async def out(ctx, num:int):
-    global out_channel
+    global out_channel, points_scored
     out_channel[ctx.message.guild.id] = num
+    points_scored[ctx.message.guild.id] = 0
     outChannel = bot.get_channel(out_channel[ctx.message.guild.id])
     await ctx.send(f"Output set to {out_channel[ctx.message.guild.id]}")
     await outChannel.send(f"Output set to {out_channel[ctx.message.guild.id]}")
@@ -123,7 +125,7 @@ async def major(ctx):
         qn = "pb2019/images/" + str(i) + ".PNG"
         await ctx.send(file=discord.File(qn))
         await ctx.send(f"{ceil(major_value[i-1])} points")        
-	   
+       
         msg = await bot.wait_for('message', check=check)
 
         if msg.content.lower() == "skip":
@@ -363,4 +365,3 @@ async def on_message(message):
 
 
 bot.run(TOKEN)
-
