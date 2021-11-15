@@ -17,22 +17,22 @@ Code hosted on GitHub at [Discord Mock Bot](https://github.com/SuperSat001/Disco
 	- Hurry-Up EM
 	- Hurry-Up X
  
-2. **Create roles**. This case-sensitive role should be given to the user hosting the mock (anyone can write answers, but only he can use commands)
+2. **Create roles**. This case-sensitive role should be given to the user hosting the mock (anyone can write answers, but only they can use commands)
 	- mock
 
 3. **Set Output channel**. This will be the channel where the bot records your points (Points Tally). The host should copy the `channel ID` and set it up by
-	- ?out `channel ID`
+	- `?out [channel ID]`
 
 4. **Start Major Contest**. Host should write this command in the `Major` channel
-	- ?major
+	- `?major`
 
 5. **Start Hurry-Up contests**. After 1h from start of Major contest, host should write the following commands in respective channels
-	- Hurry-Up Mech ?hm
-	- Hurry-Up EM ?he
-	- Hurry-Up X ?hx
+	- Hurry-Up Mech `?hm`
+	- Hurry-Up EM `?he`
+	- Hurry-Up X `?hx`
 
 6. **Add bonous points**. As I am too lazy to implement time, you have to calculate the bonous points for Hurry-Up rounds yourself. Then do:
-	- ?add `Bonous Points`
+	- `?add [Bonous Points]`
 
 7. **End the rounds**. The rounds will automatically end when all problems are done. To end them before that, write `exit` in the channel of the round which you want to end.
 Time limits for the rounds are:
@@ -48,7 +48,7 @@ Please help me by creating image folder for other years Physics Brawls like `ima
 Check [making mock.md](https://github.com/SuperSat001/Discord-Mock-Bot/blob/master/making%20mock.md) for further info.
 
 ## Bugs and Glitches
-Report any bug or glitch you encounter while using to me on discord, `Delta0001#8468`.
+Report any bug or glitch you encounter while using to me on discord, `Delta0001#1968`.
 
 ## Credits
 The bot is developed solely by me, and fair use of the code is allowed. Enjoy.
