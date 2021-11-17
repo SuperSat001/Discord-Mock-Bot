@@ -2,7 +2,7 @@
 
 Author - Delta0001#1968 (550683461376278530)
 
-[Invite the Bot](https://discord.com/api/oauth2/authorize?client_id=753144721915772940&permissions=8&scope=bot)
+[Invite the Bot](https://discord.com/api/oauth2/authorize?client_id=909688963743232011&permissions=8&scope=bot)
 
 Code hosted on GitHub at [Discord Mock Bot](https://github.com/SuperSat001/Discord-Mock-Bot)
 
