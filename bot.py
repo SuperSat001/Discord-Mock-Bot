@@ -7,7 +7,7 @@ import discord
 import os
 import random
 from discord.ext import commands
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from math import ceil
 from copy import deepcopy
 from itertools import groupby
@@ -38,10 +38,11 @@ with open("pb2019/pts.txt") as f:
 points_scored = {}
 out_channel = {}
 
-load_dotenv()
-TOKEN = os.getenv('DISCORD_TOKEN')
+# load_dotenv()
+# TOKEN = os.getenv('DISCORD_TOKEN')
 
-bot = commands.Bot(command_prefix="?")
+intents = discord.Intents.all()
+bot = commands.Bot(command_prefix='?',intents=intents)
 
 
 @bot.event
@@ -364,4 +365,4 @@ async def on_message(message):
     await bot.process_commands(message)
 
 
-bot.run(TOKEN)
+bot.run("Your_Token_Here")
