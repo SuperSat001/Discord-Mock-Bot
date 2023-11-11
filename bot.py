@@ -14,7 +14,9 @@ from itertools import groupby
 
 pres_range = 0.05 # range of acceptable answers
 
-with open("pb2019/ans.txt") as f:
+path = "pb2021"
+
+with open(f"{path}/ans.txt") as f:
     r = []
     for k in f.readlines():
         r.append(k.strip())
@@ -24,7 +26,7 @@ with open("pb2019/ans.txt") as f:
     he_ans = [float(x) for x in c[2]]
     hx_ans = [float(x) for x in c[3]]
 
-with open("pb2019/pts.txt") as f:
+with open(f"{path}/pts.txt") as f:
     r = []
     for k in f.readlines():
         r.append(k.strip())
@@ -123,7 +125,7 @@ async def major(ctx):
     i = 1
     while i<=len(major_ans):
 
-        qn = "pb2019/images/" + str(i) + ".PNG"
+        qn = f"{path}/images/" + str(i) + ".png"
         await ctx.send(file=discord.File(qn))
         await ctx.send(f"{ceil(major_value[i-1])} points")        
        
@@ -189,7 +191,7 @@ async def hm(ctx):
 
     i = 1
     while i<=len(hm_ans):
-        qn = "pb2019/images/m" + str(i) + ".PNG"
+        qn = f"{path}/images/m" + str(i) + ".png"
         await ctx.send(file=discord.File(qn))
         await ctx.send(f"{ceil(hm_value[i-1])} points")        
        
@@ -254,7 +256,7 @@ async def he(ctx):
 
     i = 1
     while i<=len(he_ans):
-        qn = "pb2019/images/e" + str(i) + ".PNG"
+        qn = "pb2021/images/e" + str(i) + ".png"
         await ctx.send(file=discord.File(qn))
         await ctx.send(f"{ceil(he_value[i-1])} points")        
        
@@ -320,7 +322,7 @@ async def hx(ctx):
 
     i = 1
     while i<=len(hx_ans):
-        qn = "pb2019/images/x" + str(i) + ".PNG"
+        qn = "pb2021/images/x" + str(i) + ".png"
         await ctx.send(file=discord.File(qn))
         await ctx.send(f"{ceil(hx_value[i-1])} points")        
        
@@ -365,4 +367,4 @@ async def on_message(message):
     await bot.process_commands(message)
 
 
-bot.run("Your_Token_Here")
+bot.run("YOUR_TOKEN")
